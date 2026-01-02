@@ -1,0 +1,22 @@
+{
+    "name": "ai-radar-api",
+    "module": "index.ts",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "format": "prettier --write \"src/**/*.ts\""
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "prettier": "^3.7.4"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "dependencies": {
+        "@hono/node-server": "^1.19.7",
+        "hono": "^4.11.3",
+        "ioredis": "^5.8.2",
+        "zod": "^4.3.4"
+    }
+}
