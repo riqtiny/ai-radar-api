@@ -10,7 +10,7 @@ export const WebsiteSchema = z
             example: 'GitHub',
             description: 'The display name of the website',
         }),
-        logo: z.string().openapi({
+        logo: z.string().url().or(z.string()).openapi({
             example: 'https://github.com/favicon.ico',
             description: 'The URL or path to the website logo',
         }),
@@ -38,8 +38,8 @@ export const WebsiteSchema = z
             .nullable()
             .optional()
             .openapi({
-                example: '2023-10-27',
-                description: 'The date when the website was reviewed',
+                example: '2026-01-26',
+                description: 'The date when the website was reviewed (ISO 8601 date string or Unix timestamp)',
             }),
     })
     .openapi('Website');

@@ -34,6 +34,8 @@ const listWebsitesRoute = createRoute({
         },
     },
     tags: ['Websites'],
+    summary: 'List all websites',
+    operationId: 'listWebsites',
 });
 
 // Route definition: Get website by hostname
@@ -80,6 +82,8 @@ const getWebsiteByHostnameRoute = createRoute({
         },
     },
     tags: ['Websites'],
+    summary: 'Get website by hostname',
+    operationId: 'getWebsiteByHostname',
 });
 
 // Implementation: List all websites

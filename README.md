@@ -5,25 +5,26 @@ A modular, production-ready API service built with **Bun** and **Hono.js**. This
 ## Features
 
 - **High Performance**: Powered by Bun runtime and Hono.js.
+- **Interactive API Docs**: Built-in Scalar UI for easy endpoint testing.
+- **AI-Friendly (Vibe Code)**: Clean OpenAPI specification for AI coding agents.
 - **Resilient Scraper**: Safely extracts data from embedded JavaScript variables on the target site.
-- **Redis Caching**: Includes TTL-based caching with TLS support for cloud-hosted Redis instances.
-- **Type Safe**: Strict TypeScript and Zod validation for all data models.
-- **Production Ready**: Modular architecture with clear separation of concerns.
+- **Redis Caching**: Includes TTL-based caching with TLS support.
+- **Type Safe**: End-to-end type safety using `@hono/zod-openapi`.
 
 ## Tech Stack
 
 - **Runtime**: [Bun](https://bun.sh/)
-- **Framework**: [Hono.js](https://hono.dev/)
+- **Framework**: [Hono.js](https://hono.dev/) & [Zod OpenAPI](https://github.com/honojs/middleware/tree/main/packages/zod-openapi)
+- **API Reference**: [Scalar](https://scalar.com/)
 - **Cache**: [Redis](https://redis.io/) (via `ioredis`)
 - **Validation**: [Zod](https://zod.dev/)
-- **Formatting**: [Prettier](https://prettier.io/)
 
 ## Getting Started
 
 ### Prerequisites
 
 - [Bun](https://bun.sh/) installed.
-- Access to a Redis server (TLS supported).
+- Access to a Redis server.
 
 ### Installation
 
@@ -53,8 +54,20 @@ bun run src/index.ts
 bun run format
 ```
 
+## API Documentation
+
+The API includes built-in interactive documentation and machine-readable specifications:
+
+- **Interactive Reference**: [http://localhost:3000/reference](http://localhost:3000/reference) (Scalar UI)
+- **OpenAPI JSON**: [http://localhost:3000/doc](http://localhost:3000/doc)
+
+### Vibe Code Support
+This API is optimized for "vibe coding". AI agents (like Cursor, Windsurf, or Claude Code) can easily understand the entire API structure by consuming the OpenAPI spec at `/doc`.
+
 ## API Endpoints
 
 - `GET /health`: Service health check.
+- `GET /doc`: OpenAPI 3.0.0 JSON specification.
+- `GET /reference`: Interactive API documentation (Scalar).
 - `GET /websites`: Fetch all reviewed websites (cached).
 - `GET /websites/:hostname`: Fetch detailed data for a specific website.
