@@ -1,8 +1,12 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi';
 import { apiReference } from '@scalar/hono-api-reference';
+import { cors } from 'hono/cors';
 import { websiteRoutes } from './routes/websites.ts';
 
 const app = new OpenAPIHono();
+
+// CORS Middleware
+app.use('*', cors());
 
 // Health check route definition
 const healthRoute = createRoute({
